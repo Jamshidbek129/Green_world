@@ -2,10 +2,12 @@ import streamlit as st
 from fastai.vision.all import *
 from pathlib import Path
 import plotly.express as px
-import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+import platform
 
+plt = platform.system()
+st.write(plt)  # just for debugging
+if plt == 'Linux':
+    pathlib.PosixPath = pathlib.WindowsPath
 st.title("O'simliklardagi kasallik turlari")
 model_path=Path("model.pkl")
 if model_path.exists():
