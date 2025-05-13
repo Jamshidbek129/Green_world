@@ -3,11 +3,10 @@ from fastai.vision.all import *
 from pathlib import Path
 import plotly.express as px
 import platform
-
+import pathlib
 plt = platform.system()
-st.write(plt)  # just for debugging
-if plt == 'Linux':
-    pathlib.PosixPath = pathlib.WindowsPath
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
+
 st.title("O'simliklardagi kasallik turlari")
 model_path=Path("model.pkl")
 if model_path.exists():
